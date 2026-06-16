@@ -1,8 +1,8 @@
 const { createClient } = require('@supabase/supabase-js');
 
 // === GANTI PAKAI SERVICE ROLE KEY (Bukan Anon Key) ===
-const URL_LAMA = 'https://jpavxamzswrnbtepsozo.supabase.co';
-const KEY_LAMA = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpwYXZ4YW16c3dybmJ0ZXBzb3pvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MzQxMjY1OSwiZXhwIjoyMDg4OTg4NjU5fQ.2TCWS9aFBeecSx9lrJWegtdCARR8od-cCAX4BZ4HFCU'; 
+const URL_LAMA = 'https://hhklhzsvodrsmskcmtnj.supabase.co';
+const KEY_LAMA = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhoa2xoenN2b2Ryc21za2NtdG5qIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjM1NjY1NCwiZXhwIjoyMDkxOTMyNjU0fQ.C0Ujc6wwzDZOi05J87i8Z4qEdtSPrP65IqXZV2BnIa8'; 
 
 const URL_BARU = 'https://api.yudhiyo-tecno.com';
 const KEY_BARU = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc4MTUxODMyMCwiZXhwIjo0OTM3MTkxOTIwLCJyb2xlIjoic2VydmljZV9yb2xlIn0.S7OF-MLTzk0kbc3CpR_74UBSaCkc6F_Ncq__8c0Qt6w';
