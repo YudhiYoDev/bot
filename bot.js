@@ -44,8 +44,8 @@ setInterval(async () => {
 
     try {
         const { data: listTrx, error } = await db
-            .from('transactions')
-            .select(`*, products (sku_provider, name)`)
+            .from('transactions_store')
+            .select(`*, products_store (sku_provider, name)`)
             .eq('status', 'PROSES') 
             .is('sn', null) 
             .limit(1); 
@@ -64,14 +64,14 @@ setInterval(async () => {
 
 async function prosesDigiflazz(trx) {
     const refId = trx.id;
-    const sku = trx.products.sku_provider;
+    const sku = trx.products_store.sku_provider;
 
     if (!sku || sku.includes('pre2968')) {
         console.log(`⛔ SKU SALAH (${sku})`);
         return; 
     }
 
-    console.log(`🚀 Memproses: ${trx.products.name} -> ID: ${trx.user_game_id}`);
+    console.log(`🚀 Memproses: ${trx.products_store.name} -> ID: ${trx.user_game_id}`);
     const sign = md5(USERNAME_DIGI + KEY_DIGI + refId);
 
     try {
@@ -89,7 +89,7 @@ async function prosesDigiflazz(trx) {
         
         if (hasil.rc === '00' || hasil.rc === '44' || hasil.status === 'Pending' || hasil.status === 'Sukses') {
             console.log("✅ SUKSES!");
-            await db.from('transactions').update({ status: 'SUCCESS', sn: hasil.sn || refId }).eq('id', refId);
+            await db.from('transactions_store').update({ status: 'SUCCESS', sn: hasil.sn || refId }).eq('id', refId);
             // 🔥 TAMBAHAN LOGIKA GACHA: Robot Otomatis Bagi Poin 2% 🔥
             try {
                 const dptPoint = Math.floor(trx.amount * 0.02);
@@ -105,17 +105,17 @@ async function prosesDigiflazz(trx) {
                 console.log("⚠️ Gagal ngasih poin gacha:", errPoint.message);
             }
             
-            laporTelegram(`✅ **TRANSAKSI SUKSES!**\n📦 ${trx.products.name}\n👤 ${trx.user_game_id}\nSN: \`${hasil.sn}\``);
+            laporTelegram(`✅ **TRANSAKSI SUKSES!**\n📦 ${trx.products_store.name}\n👤 ${trx.user_game_id}\nSN: \`${hasil.sn}\``);
         } else {
             console.log("❌ GAGAL.");
-            await db.from('transactions').update({ status: 'FAILED', sn: hasil.message }).eq('id', refId);
-             laporTelegram(`❌ **GAGAL!**\n📦 ${trx.products.name}\n⚠️ ${hasil.message}`);
+            await db.from('transactions_store').update({ status: 'FAILED', sn: hasil.message }).eq('id', refId);
+             laporTelegram(`❌ **GAGAL!**\n📦 ${trx.products_store.name}\n⚠️ ${hasil.message}`);
         }
 
     } catch (err) {
         console.log("⚠️ ERROR API:", err.message);
         const errMsg = err.response?.data?.data?.message || "Error Koneksi";
-        await db.from('transactions').update({ status: 'FAILED', sn: errMsg }).eq('id', refId);
+        await db.from('transactions_store').update({ status: 'FAILED', sn: errMsg }).eq('id', refId);
         laporTelegram(`⚠️ **ERROR SYSTEM**\n${errMsg}`);
     }
 }

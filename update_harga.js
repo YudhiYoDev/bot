@@ -37,7 +37,7 @@ async function mulaiUpdate() {
         console.log(`✅ Dapat ${listDigi.length} produk dari Digiflazz.`);
 
         // 2. AMBIL PRODUK DARI DATABASE KITA
-        const { data: produkKita } = await db.from('products').select('*');
+        const { data: produkKita } = await db.from('products_store').select('*');
         
         console.log(`🔍 Mengecek ${produkKita.length} produk di toko Abang...`);
         console.log("---------------------------------------------------");
@@ -64,7 +64,7 @@ async function mulaiUpdate() {
                 if (modalBaru !== barang.price_buy || jualBaru !== barang.price_sell) {
                     
                     // UPDATE DATABASE
-                    await db.from('products').update({
+                    await db.from('products_store').update({
                         price_buy: modalBaru,
                         price_sell: jualBaru
                     }).eq('id', barang.id);
