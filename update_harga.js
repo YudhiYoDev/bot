@@ -12,8 +12,8 @@ const KEUNTUNGAN_PERSEN = 0.04;
 // ==========================================
 // DATA RAHASIA (Sama kayak bot.js)
 // ==========================================
-const SUPABASE_URL = 'https://jpavxamzswrnbtepsozo.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpwYXZ4YW16c3dybmJ0ZXBzb3pvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MzQxMjY1OSwiZXhwIjoyMDg4OTg4NjU5fQ.2TCWS9aFBeecSx9lrJWegtdCARR8od-cCAX4BZ4HFCU';
+const SUPABASE_URL = 'https://api.yudhiyo-tecno.com';
+const SUPABASE_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc4MTUxODMyMCwiZXhwIjo0OTM3MTkxOTIwLCJyb2xlIjoic2VydmljZV9yb2xlIn0.S7OF-MLTzk0kbc3CpR_74UBSaCkc6F_Ncq__8c0Qt6w';
 const USERNAME_DIGI = 'cosilaWmn3Lg'.trim(); 
 const KEY_DIGI = 'd7e119ac-abf4-5083-a26a-89e32fba583b'.trim(); 
 
